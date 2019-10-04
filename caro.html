@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>caro.com</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+<h2>Caro Game Simple</h2>
+<p id="carogame"></p>
+<input type="button" value="change value" onclick="changeValue()"/>
+<script>
+    let b = document.getElementById('carogame');
+    let board =[] ;
+    let data = '';
+//tạo mảng board hai chiều
+     for(let i= 0 ;i<5; i++){
+        board[i] = [0,1,0,4,5];
+     }
+// thêm 2 dấu space vào giữa các phần tử cùng một hàng
+    for(let i =0 ;i<5;i++){
+        for (let j=0 ; j<5;j++){
+            data += board[i][j]+'&nbsp;&nbsp;';
+        }
+        data += '<br />';
+    }
+    //in ra ma trận board 5*5
+     b.innerHTML = data;
+    //
+     function changeValue() {
+        let positionX = prompt("X: ");
+        let positionY = prompt("Y: ");
+        data = "";
+        board[positionX][positionY] = "x";
+        //duyệt lại mảng board với phần tử đã bị thay đổi
+        for (let i = 0; i < 5; i++) {
+            data += "<br/>";
+            for (let j = 0; j < 5; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;";
+            }
+        }
+
+        b.innerHTML = data;
+    }
+</script>
+</body>
+</html>
